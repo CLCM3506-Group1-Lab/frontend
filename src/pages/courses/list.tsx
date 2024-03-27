@@ -26,6 +26,7 @@ export const PostList: React.FC = () => {
     data: coursesQuery,
     error,
     isLoading,
+    isRefetching,
   } = useList({
     resource: "courses",
     pagination: {
@@ -76,12 +77,23 @@ export const PostList: React.FC = () => {
         })}
       </HStack>
 
-      {isLoading && <div>Loading...</div>}
+      {(isLoading || isRefetching) && <div>Loading...</div>}
 
-      {!isLoading && error && <div>Error: {error.message}</div>}
+      {!(isLoading || isRefetching) && error && (
+        <div>Error: {error.message}</div>
+      )}
 
-      {!isLoading && coursesQuery?.data && (
-        <Grid templateColumns="repeat(3, 1fr)" gap={20} mx="10%">
+      {!(isLoading || isRefetching) && coursesQuery?.data && (
+        <Grid
+          templateColumns={{
+            base: "1fr",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          }}
+          gap={20}
+          mx="10%"
+          mb="2em"
+        >
           {coursesQuery.data.map((course) => (
             <Card key={course.id} borderRadius="0" border="1px solid #B0B0B0">
               <CardBody p="0">
@@ -115,9 +127,9 @@ export const PostList: React.FC = () => {
         </Grid>
       )}
 
-      {!isLoading && coursesQuery?.data && coursesQuery.data.length === 0 && (
-        <div>No data found</div>
-      )}
+      {!(isLoading || isRefetching) &&
+        coursesQuery?.data &&
+        coursesQuery.data.length === 0 && <div>No data found</div>}
     </Stack>
   );
 };

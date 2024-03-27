@@ -100,7 +100,7 @@ const DesktopNav = () => {
   const linkHoverColor = useColorModeValue("gray.800", "white");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack h="auto" direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} alignSelf="center">
           <Box
@@ -178,7 +178,7 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "#",
   },
   {
-    label: "Courses offering",
+    label: "Courses",
     href: "#",
   },
   {
