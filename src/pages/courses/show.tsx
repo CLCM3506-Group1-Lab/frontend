@@ -6,17 +6,9 @@ import { Heading, Text, Spacer } from "@chakra-ui/react";
 import { ICategory, IPost } from "../../interfaces";
 
 export const PostShow: React.FC = () => {
-  const { queryResult } = useShow<IPost>();
+  const { queryResult } = useShow({});
   const { data, isLoading } = queryResult;
   const record = data?.data;
-
-  const { data: categoryData } = useOne<ICategory>({
-    resource: "categories",
-    id: record?.category.id || "",
-    queryOptions: {
-      enabled: !!record?.category.id,
-    },
-  });
 
   return (
     <Show isLoading={isLoading}>
@@ -38,7 +30,6 @@ export const PostShow: React.FC = () => {
       <Heading as="h5" size="sm" mt={4}>
         Category
       </Heading>
-      <Text mt={2}>{categoryData?.data?.title}</Text>
 
       <Heading as="h5" size="sm" mt={4}>
         Content
