@@ -50,6 +50,8 @@ export const PostShow: React.FC = () => {
           <Center flex="1" alignContent="center" minH="50vh" px="1em">
             <Stack gap="1em" width="100%">
               <Skeleton h="5em" />
+              <Skeleton h="5em" />
+              <Skeleton h="5em" />
             </Stack>
           </Center>
           <Box
@@ -60,8 +62,6 @@ export const PostShow: React.FC = () => {
           <Center flex="1" minH="50vh">
             <Center flex="1" alignContent="center" minH="50vh" px="1em">
               <Stack gap="1em" width="100%">
-                <Skeleton h="5em" />
-                <Skeleton h="5em" />
                 <Skeleton h="5em" />
               </Stack>
             </Center>
