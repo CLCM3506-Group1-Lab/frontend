@@ -48,7 +48,7 @@ export const PostList: React.FC = () => {
   ];
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "category",
-    defaultValue: "all",
+    defaultValue: "All",
     onChange: (e: string) => setFilter(e),
   });
 
