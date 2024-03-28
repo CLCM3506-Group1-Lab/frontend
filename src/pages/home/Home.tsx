@@ -23,8 +23,9 @@ const Home = () => {
           textAlign="center"
           textShadow="2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Whether you're a curious learner, an aspiring developer, or a seasoned
+          professional, CloudLearn Hub welcomes you. Let's learn, create, and
+          transform the digital landscape together.
         </Text>
         <Button
           as="a"

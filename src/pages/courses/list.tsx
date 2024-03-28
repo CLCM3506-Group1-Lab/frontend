@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGo, useList } from "@refinedev/core";
 import { HStack, Image, Link, useRadioGroup } from "@chakra-ui/react";
 
@@ -36,20 +36,20 @@ export const PostList: React.FC = () => {
       {
         field: "category",
         operator: "eq",
-        value: filter.toLocaleLowerCase(),
+        value: filter,
       },
     ],
   });
 
   const options = [
-    "All",
+    "all",
     "Cloud Computing",
     "Computer Science",
     "Project Management",
   ];
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "category",
-    defaultValue: "All",
+    defaultValue: "all",
     onChange: (e: string) => setFilter(e),
   });
 
@@ -98,7 +98,15 @@ export const PostList: React.FC = () => {
             <Card key={course.id} borderRadius="0" border="1px solid #B0B0B0">
               <CardBody p="0">
                 <Image
-                  src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  src={
+                    course.category === "Cloud Computing"
+                      ? "/src/cloud-computing.jpg"
+                      : course.category === "Computer Science"
+                      ? "/src/computer-science.jpg"
+                      : course.category === "Project Management"
+                      ? "/src/project-management.jpg"
+                      : "/src/cloud-computing.jpg"
+                  }
                   alt="Green double couch with wooden legs"
                 />
                 <Stack p="20px" spacing="3">

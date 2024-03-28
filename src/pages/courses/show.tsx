@@ -22,6 +22,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import axios from "axios";
+import { useState } from "react";
 
 interface CreateSessionResponse {
   url: string;
@@ -30,9 +31,11 @@ export const PostShow: React.FC = () => {
   const go = useGo();
   const { queryResult } = useShow({});
   const { data, isLoading } = queryResult;
+  const [isRedirecting, setIsRedirecting] = useState(false);
   const record = data?.data;
   const apiUrl = useApiUrl();
   const handleClick = async () => {
+    setIsRedirecting(true);
     axios({
       method: "post",
       url: `${apiUrl}/create-checkout-session`,
@@ -151,6 +154,7 @@ export const PostShow: React.FC = () => {
               p="2.5em 5em"
               _hover={{ bg: "black.300" }}
               onClick={handleClick}
+              isLoading={isRedirecting}
             >
               Pay with Stripe
             </Button>
