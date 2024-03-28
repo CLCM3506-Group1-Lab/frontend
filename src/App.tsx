@@ -28,6 +28,7 @@ import { Register } from "./pages/register";
 import { ForgotPassword } from "./pages/forgotPassword";
 import { authProvider } from "./providers/authProvider";
 import CustomLayout from "./components/layout/customLayout";
+import Home from "./pages/home/Home";
 
 const App: React.FC = () => {
   const customTheme = extendTheme({
@@ -91,11 +92,7 @@ const App: React.FC = () => {
                 </Authenticated>
               }
             >
-              <Route
-                index
-                element={<NavigateToResource resource="courses" />}
-              />
-
+              <Route index element={<Home />} />
               <Route path="/courses">
                 <Route index element={<PostList />} />
                 <Route path="create" element={<PostCreate />} />
