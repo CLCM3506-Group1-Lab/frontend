@@ -21,6 +21,8 @@ import {
   Skeleton,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import axios from "axios";
+
 interface CreateSessionResponse {
   url: string;
 }
@@ -31,19 +33,18 @@ export const PostShow: React.FC = () => {
   const record = data?.data;
   const apiUrl = useApiUrl();
   const handleClick = async () => {
-    fetch(`http://localhost:4242/create-checkout-session`, {
-      // TODO: Use apiUrl instead of hardcoded URL
-      method: "POST",
+    axios({
+      method: "post",
+      url: `${apiUrl}/create-checkout-session`,
+      data: {
+        id: record?.id,
+      },
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        id: record?.id,
-      }),
     })
-      .then((res) => res.json())
-      .then((data: CreateSessionResponse) => {
-        window.location.href = data.url; // Can't handle normal redirects in here
+      .then((res) => {
+        window.location.href = res.data.url; // Can't handle normal redirects in here
       })
       .catch((error) => {
         console.error("Error:", error);
