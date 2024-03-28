@@ -170,7 +170,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "About us",
-    href: "#",
+    href: "/about",
   },
   {
     label: "Courses",
