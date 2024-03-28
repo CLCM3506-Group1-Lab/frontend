@@ -19,6 +19,8 @@ import { useLogout } from "@refinedev/core";
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const { mutate: logout } = useLogout();
+  const linkColor = useColorModeValue("gray.800", "gray.800");
+  const linkHoverColor = useColorModeValue("gray.800", "white");
 
   return (
     <Box>
@@ -46,11 +48,13 @@ export default function Navbar() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text
+            as="a"
             fontSize="24px"
             fontWeight="bold"
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
+            href="/"
           >
             CloudLearn Hub
           </Text>
@@ -66,6 +70,22 @@ export default function Navbar() {
           direction={"row"}
           spacing={6}
         >
+          <Box alignSelf="center">
+            <Box
+              as="a"
+              href={"/profile"}
+              fontSize={"18px"}
+              fontWeight={500}
+              color={linkColor}
+              _hover={{
+                textDecoration: "none",
+                color: linkHoverColor,
+              }}
+            >
+              Account
+            </Box>
+          </Box>
+
           <Button
             as="a"
             fontWeight="300"
@@ -93,9 +113,8 @@ export default function Navbar() {
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.800", "gray.800");
   const linkHoverColor = useColorModeValue("gray.800", "white");
-
   return (
-    <Stack h="auto" direction={"row"} spacing={4}>
+    <Stack h="auto" direction={"row"} spacing={3}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} alignSelf="center">
           <Box
@@ -164,10 +183,6 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Home",
-    href: "/",
-  },
   {
     label: "About us",
     href: "/about",

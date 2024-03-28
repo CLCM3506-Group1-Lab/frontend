@@ -31,6 +31,7 @@ import CustomLayout from "./components/layout/customLayout";
 import Home from "./pages/home/Home";
 import Contact from "./pages/contact/contact";
 import About from "./pages/about/About";
+import Profile from "./pages/profile/Profile";
 
 const App: React.FC = () => {
   const customTheme = extendTheme({
@@ -72,6 +73,10 @@ const App: React.FC = () => {
                 canDelete: true,
               },
             },
+            {
+              name: "profile",
+              show: "/profile/show",
+            },
           ]}
           options={{
             syncWithLocation: true,
@@ -94,12 +99,18 @@ const App: React.FC = () => {
               <Route index element={<Home />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
+
+              <Route path="/profile">
+                <Route index element={<Profile />} />
+              </Route>
+
               <Route path="/courses">
                 <Route index element={<PostList />} />
                 <Route path="create" element={<PostCreate />} />
                 <Route path="edit/:id" element={<PostEdit />} />
                 <Route path="show/:id" element={<PostShow />} />
               </Route>
+
               <Route path="*" element={<ErrorComponent />} />
             </Route>
 
