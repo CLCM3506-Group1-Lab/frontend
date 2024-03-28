@@ -20,6 +20,7 @@ export default function Navbar() {
   return (
     <Box>
       <Flex
+        bg="white"
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -171,7 +172,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
-    href: "#",
+    href: "/",
   },
   {
     label: "About us",
@@ -179,7 +180,7 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Courses",
-    href: "#",
+    href: "/courses",
   },
   {
     label: "Contact us",
