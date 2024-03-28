@@ -1,4 +1,10 @@
-import { useShow, useGo } from "@refinedev/core";
+import {
+  useShow,
+  useGo,
+  useCustom,
+  useApiUrl,
+  useCustomMutation,
+} from "@refinedev/core";
 
 import {
   Heading,
@@ -15,12 +21,35 @@ import {
   Skeleton,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import axios from "axios";
 
+interface CreateSessionResponse {
+  url: string;
+}
 export const PostShow: React.FC = () => {
   const go = useGo();
   const { queryResult } = useShow({});
   const { data, isLoading } = queryResult;
   const record = data?.data;
+  const apiUrl = useApiUrl();
+  const handleClick = async () => {
+    axios({
+      method: "post",
+      url: `${apiUrl}/create-checkout-session`,
+      data: {
+        id: record?.id,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        window.location.href = res.data.url; // Can't handle normal redirects in here
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
   return (
     <Box py="2em" px="5%" w="100%">
@@ -121,6 +150,7 @@ export const PostShow: React.FC = () => {
               color="white"
               p="2.5em 5em"
               _hover={{ bg: "black.300" }}
+              onClick={handleClick}
             >
               Pay with Stripe
             </Button>
