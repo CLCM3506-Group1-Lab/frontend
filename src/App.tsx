@@ -29,6 +29,7 @@ import { ForgotPassword } from "./pages/forgotPassword";
 import { authProvider } from "./providers/authProvider";
 import CustomLayout from "./components/layout/customLayout";
 import Home from "./pages/home/Home";
+import Contact from "./pages/contact/contact";
 
 const App: React.FC = () => {
   const customTheme = extendTheme({
@@ -93,6 +94,7 @@ const App: React.FC = () => {
               }
             >
               <Route index element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/courses">
                 <Route index element={<PostList />} />
                 <Route path="create" element={<PostCreate />} />

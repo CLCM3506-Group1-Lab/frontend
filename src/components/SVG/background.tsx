@@ -14,40 +14,24 @@ export default function BackgroundSVG() {
           d="M1210.55 472.964L1070.48 613.031V472.964H1210.55Z"
           fill="black"
           stroke="black"
-          stroke-width="2"
         />
         <path
           d="M1354.03 329.482L1213.96 469.549V329.482H1354.03Z"
           stroke="black"
-          stroke-width="2"
         />
         <path
           d="M1357.45 330.896L1497.51 470.964H1357.45V330.896Z"
           stroke="black"
-          stroke-width="2"
         />
-        <circle
-          cx="1141.22"
-          cy="258.534"
-          r="70.7409"
-          stroke="black"
-          stroke-width="2"
-        />
+        <circle cx="1141.22" cy="258.534" r="70.7409" stroke="black" />
         <circle
           cx="943.935"
           cy="489.899"
           r="16.9352"
           fill="black"
           stroke="black"
-          stroke-width="2"
         />
-        <circle
-          cx="1307.12"
-          cy="556.259"
-          r="70.7409"
-          stroke="black"
-          stroke-width="2"
-        />
+        <circle cx="1307.12" cy="556.259" r="70.7409" stroke="black" />
         <rect
           x="1357.45"
           y="186"
@@ -55,17 +39,14 @@ export default function BackgroundSVG() {
           height="141.482"
           fill="black"
           stroke="black"
-          stroke-width="2"
         />
         <path
           d="M110.031 144.482L-30.0364 284.549V144.482H110.031Z"
           stroke="black"
-          stroke-width="2"
         />
         <path
           d="M113.445 145.896L253.513 285.964H113.445L113.445 145.896Z"
           stroke="black"
-          stroke-width="2"
         />
         <circle
           cx="381.474"
@@ -73,15 +54,8 @@ export default function BackgroundSVG() {
           r="16.9352"
           fill="black"
           stroke="black"
-          stroke-width="2"
         />
-        <circle
-          cx="63.1235"
-          cy="371.259"
-          r="70.7409"
-          stroke="black"
-          stroke-width="2"
-        />
+        <circle cx="63.1235" cy="371.259" r="70.7409" stroke="black" />
         <rect
           x="113.445"
           y="1"
@@ -89,7 +63,6 @@ export default function BackgroundSVG() {
           height="141.482"
           fill="black"
           stroke="black"
-          stroke-width="2"
         />
       </svg>
     </Box>

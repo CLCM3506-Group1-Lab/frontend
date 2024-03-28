@@ -1,15 +1,10 @@
 import React from "react";
 import { Center, Flex, Heading, Text, Button } from "@chakra-ui/react";
-import BackgroundSVG from "./background";
+import BackgroundSVG from "../../components/SVG/background";
 
 const Home = () => {
   return (
-    <Center
-      h="100%"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-      position="relative"
-    >
+    <Center h="100%" position="relative">
       <BackgroundSVG />
       <Flex
         direction="column"
