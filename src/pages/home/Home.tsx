@@ -32,7 +32,7 @@ const Home = () => {
           borderRadius="5px"
           bg="black"
           color="white"
-          p="2.5em 5em"
+          p="2em 5em"
           _hover={{ bg: "black.300" }}
           href="/courses"
         >

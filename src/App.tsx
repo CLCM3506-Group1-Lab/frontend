@@ -50,9 +50,6 @@ const App: React.FC = () => {
         "Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
       body: "Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
     },
-    colors: {
-      background: "white",
-    },
   });
 
   return (

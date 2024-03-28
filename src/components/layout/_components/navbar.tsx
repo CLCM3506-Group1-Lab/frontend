@@ -13,9 +13,12 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { authProvider } from "../../../providers/authProvider";
+import { useLogout } from "@refinedev/core";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { mutate: logout } = useLogout();
 
   return (
     <Box>
@@ -64,27 +67,18 @@ export default function Navbar() {
           spacing={6}
         >
           <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Cart
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
+            as="a"
+            fontWeight="300"
+            borderRadius="5px"
+            bg="black"
+            color="white"
+            p="1em 2em"
+            _hover={{ bg: "black.300" }}
+            onClick={() => {
+              logout();
             }}
           >
-            Sign In
+            Sign out
           </Button>
         </Stack>
       </Flex>
