@@ -98,6 +98,9 @@ export const PostList: React.FC = () => {
             <Card key={course.id} borderRadius="0" border="1px solid #B0B0B0">
               <CardBody p="0">
                 <Image
+                  maxH="15rem"
+                  objectFit="cover"
+                  width="100%"
                   src={
                     course.category === "Cloud Computing"
                       ? "/src/cloud-computing.jpg"
